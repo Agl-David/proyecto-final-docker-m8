@@ -1,0 +1,58 @@
+version: "3.9"
+
+services:
+  database:
+    image: mysql:8.0
+    container_name: database
+    restart: always
+
+    environment:
+      MYSQL_ROOT_PASSWORD: root123
+
+    ports:
+      - "3306:3306"
+
+    volumes:
+      - mysql_data:/var/lib/mysql
+      - ./database/init.sql:/docker-entrypoint-initdb.d/init.sql
+
+    networks:
+      - cv_network
+
+  backend:
+    build: ./backend
+    image: aguilar-backend:v1
+
+    container_name: backend
+
+    restart: always
+
+    ports:
+      - "4000:4000"
+
+    depends_on:
+      - database
+
+    networks:
+      - cv_network
+
+  frontend:
+    build: ./frontend
+    image: aguilar-frontend:v1
+
+    container_name: frontend
+
+    ports:
+      - "3000:80"
+
+    depends_on:
+      - backend
+
+    networks:
+      - cv_network
+
+volumes:
+  mysql_data:
+
+networks:
+  cv_network:
