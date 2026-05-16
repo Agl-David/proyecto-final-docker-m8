@@ -4,6 +4,7 @@ services:
   database:
     image: mysql:8.0
     container_name: database
+
     restart: always
 
     environment:
@@ -20,8 +21,7 @@ services:
       - cv_network
 
   backend:
-    build: ./backend
-    image: aguilar-backend:v1
+    image: david0086/aguilar-backend:v1
 
     container_name: backend
 
@@ -37,8 +37,7 @@ services:
       - cv_network
 
   frontend:
-    build: ./frontend
-    image: aguilar-frontend:v1
+    image: david0086/aguilar-frontend:v1
 
     container_name: frontend
 
