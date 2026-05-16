@@ -231,6 +231,6 @@ La aplicación utiliza:
 
 # Autor
 
-David Aguilar
+David Adrian Aguilar Loza
 
 Proyecto desarrollado para la práctica final de Docker Compose utilizando React, Node.js y MySQL.
