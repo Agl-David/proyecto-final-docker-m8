@@ -1,4 +1,6 @@
-CREATE DATABASE IF NOT EXISTS cvdb;
+CREATE DATABASE IF NOT EXISTS cvdb
+CHARACTER SET utf8mb4
+COLLATE utf8mb4_unicode_ci;
 
 USE cvdb;
 
@@ -30,7 +32,7 @@ VALUES (
 INSERT INTO formacion (titulo, institucion, anio, persona_id)
 VALUES
 (
-    'Ingeniería de Petrolera',
+    'Ingeniería Petrolera',
     'Escuela Militar de Ingeniería',
     '2016',
     1
